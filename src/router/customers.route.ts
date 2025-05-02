@@ -16,7 +16,7 @@ export default (router: express.Router) => {
       "/customer-by-email",
       customerController.getCustomerByEmail.bind(customerController)
     )
-    .get(
+    .post(
       "/customer/me",
       customerController.getCustomerBySessionToken.bind(customerController)
     )
