@@ -10,5 +10,5 @@ export default (router: express.Router) => {
       cartController.getCartByCustomerId.bind(cartController)
     )
     .delete("/cart/:id", cartController.delete.bind(cartController))
-    .post("/cart", cartController.create.bind(cartController));
+    .post("/cart/add", cartController.create.bind(cartController));
 };
