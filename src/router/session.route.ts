@@ -1,7 +1,7 @@
-import { sessionsController } from '../controllers/session.controller';
+// import { sessionsController } from '../controllers/session.controller';
 
-import express from "express";
+// import express from "express";
 
-export default (router: express.Router) => {
-    router.post('/track-user-event', sessionsController.trackUserEvent);
-};
+// export default (router: express.Router) => {
+//     router.post('/track-user-event', sessionsController.trackUserEvent);
+// };
