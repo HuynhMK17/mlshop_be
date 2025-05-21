@@ -56,8 +56,29 @@ class OrderController
       return res.status(400);
     }
   };
-  getMeOrders = async (req: Request, res: Response): Promise<any> => {
-    return;
+   getMeOrders = async (req: Request, res: Response): Promise<any> => {
+      try {
+        // 1. Lấy header Authorization
+        const auth = req.headers.authorization;
+        if (!auth?.startsWith("Bearer ")) {
+          return res.sendStatus(401);          // Thiếu token
+        }
+        const token = auth.slice(7);
+
+        // 2. Lấy customer từ token
+        const customer = await this.customerService.getCustomerBySessionToken(token);
+        if (!customer) {
+          return res.sendStatus(404);          // Token không hợp lệ
+        }
+
+        // 3. Lấy đơn hàng
+        const orders = await this.service.getOrdersByCustomerId(customer._id);
+        // 4. Trả về danh sách đơn hàng
+        return res.status(200).json(orders);
+      } catch (e) {
+        console.error(e);
+        return res.sendStatus(400);
+    }
   };
   getOrdersByCustomerId = async (req: Request, res: Response): Promise<any> => {
     try {

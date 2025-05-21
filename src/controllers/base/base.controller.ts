@@ -46,7 +46,7 @@ export abstract class BaseController<T> implements IBaseController<T> {
   update = async (req: Request, res: Response): Promise<any> => {
     try {
       const { id } = req.params;
-      const updatedItem = await this.service.update(id, req.body);
+      const updatedItem = await this.service.update({ id, ...req.body });
       if (updatedItem) {
         return res.status(200).json(updatedItem);
       } else {

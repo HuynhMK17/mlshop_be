@@ -1,5 +1,5 @@
 import mongoose, { Document } from "mongoose";
-import { IProduct, VariantSchema } from "./interfaces/product.interface";
+import { CommentSchema, IProduct, VariantSchema } from "./interfaces/product.interface";
 
 const ProductSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -10,6 +10,7 @@ const ProductSchema = new mongoose.Schema({
   stock: { type: Number, required: false },
   image: { type: [String], required: false },
   variants: { type: VariantSchema, required: false },
+  comments:{ type: [CommentSchema], default:[] },
   createdAt: { type: Date, immutable: true, default: () => Date.now() },
   updatedAt: { type: Date, default: () => Date.now() },
 });
