@@ -7,7 +7,7 @@ import ordersRoute from "./orders.route";
 import businessesRoute from "./businesses.route";
 import cartRoute from "./cart.route";
 import reviewsRoute from "./reviews.route";
-import sessionRoute from "./session.route";
+// import sessionRoute from "./session.route";
 
 const router = express.Router();
 
@@ -20,6 +20,6 @@ export default (): express.Router => {
   businessesRoute(router);
   cartRoute(router);
   reviewsRoute(router);
-  sessionRoute(router);
+  // sessionRoute(router);
   return router;
 };

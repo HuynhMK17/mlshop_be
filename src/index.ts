@@ -4,7 +4,7 @@ import cookieParser from "cookie-parser";
 import compression from "compression";
 import cors from "cors";
 import mongoose from "mongoose";
-import dotenv from 'dotenv';  
+import dotenv from "dotenv";
 dotenv.config();
 import router from "./router";
 // import { connectKafka, disconnectKafka } from "./configs/kafkaClient";
@@ -22,15 +22,14 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 // connectKafka();
- 
-const PORT = process.env.PORT || 3001;  
 
-app.listen(PORT, () =>  
-  console.log(`Server running on port http://localhost:${PORT}`)  
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () =>
+  console.log(`Server running on port http://localhost:${PORT}`)
 );
- 
 
-const MONGODB_URL = "mongodb://localhost:27017/";
+const MONGODB_URL = process.env.MONGODB_URI || "mongodb://localhost:27017/";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URL);

@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
+// import { Request, Response } from "express";
 
-export interface ISessionController {
-     trackUserEvent(req: Request, res: Response): Promise<any>;
-}
+// export interface ISessionController {
+//      trackUserEvent(req: Request, res: Response): Promise<any>;
+// }
